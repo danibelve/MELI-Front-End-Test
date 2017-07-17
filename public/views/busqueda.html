@@ -1,0 +1,37 @@
+<!-- busqueda .html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Búsqueda</title>
+	<style>
+		.resultados{
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			align-content: center;
+		}
+		.gente{
+			padding: 15px 15px 15px 15px;
+		}
+		img{
+			padding-left: 45px;
+		}
+		.gente:nth-child(even){
+			background-color: #80ABD4;
+
+		}
+		.gente:nth-child(odd){
+			background-color: #0081C6;
+		}
+	</style>
+</head>
+<body>
+	<h1>Resultados de Búsqueda</h1>
+	<div class="resultados">
+		<img id="loader" src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif"/>
+	</div>
+	<script src="/lib/jquery/dist/jquery.min.js"></script>
+	<script src="/public/js/busqueda.js"></script>
+</body>
+</html>

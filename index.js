@@ -3,26 +3,27 @@ var express = require('express'),
 app = express(),
 https = require('https'),
 sassMiddleware = require('node-sass-middleware'),
-request = require('request');
+request = require('request'),
+path = require('path');
 // cuando diga /lib va a buscar a /node_modules
 app.use('/lib',express.static(__dirname + '/node_modules')); 
 app.use('/public', express.static(__dirname + '/public'));
 
-/*app.use(
+app.use(
   sassMiddleware({
     src: path.join(__dirname, 'scss'),
     dest: path.join(__dirname, 'public/stylesheets'),
     debug: true,
     /*outputStyle: 'compressed',*/
-	/*outputStyle: 'extended',
+	outputStyle: 'extended',
     force: true,
     prefix: "/stylesheets"
   })
-);*/
+);
 
 
 app.get('/', function (req, res) {
-  res.sendFile(__dirname +'/public/caja.html');
+  res.sendFile(__dirname +'/public/index.html');
   /*los agrego uno por uno ya que son independientes
   res.sendFile(__dirname +'/public/views/busqueda.html');
   res.sendFile(__dirname +'/public/views/detalle.html');*/

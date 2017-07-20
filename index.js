@@ -12,12 +12,12 @@ app.use('/public', express.static(__dirname + '/public'));
 app.use(
   sassMiddleware({
     src: path.join(__dirname, 'scss'),
-    dest: path.join(__dirname, 'public/stylesheets'),
+    dest: path.join(__dirname, 'public/css'),
     debug: true,
     /*outputStyle: 'compressed',*/
 	outputStyle: 'extended',
     force: true,
-    prefix: "/stylesheets"
+    prefix: "/css"
   })
 );
 

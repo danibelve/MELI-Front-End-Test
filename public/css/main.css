@@ -23,7 +23,8 @@ body {
       position: relative;
       padding: 0 0 0 80px; }
       .nav div div a {
-        background-color: transparent;
+        background-color: transparent; }
+      .nav div div .logo {
         background-image: url(../assets/logo.png);
         background-size: 53px;
         background-repeat: no-repeat;

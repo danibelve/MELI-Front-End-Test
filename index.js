@@ -7,7 +7,7 @@ request = require('request'),
 path = require('path');
 // cuando diga /lib va a buscar a /node_modules
 app.use('/lib',express.static(__dirname + '/node_modules')); 
-app.use('/public', express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 app.use(
   sassMiddleware({

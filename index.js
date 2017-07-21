@@ -24,13 +24,10 @@ app.use(
 
 app.get('/', function (req, res) {
   res.sendFile(__dirname +'/public/index.html');
-  /*los agrego uno por uno ya que son independientes
-  res.sendFile(__dirname +'/public/views/busqueda.html');
-  res.sendFile(__dirname +'/public/views/detalle.html');*/
 });//fin get /
 app.get('/search', function (req,res){
 	res.sendFile(__dirname + '/public/views/busqueda.html');
-});
+}); //fin get '/search'
 	//aca tendria que decir ITEMS utilizar el requiere
 app.get('/prod', function(req,res){
 	https.get("https://api.mercadolibre.com/sites/MLA/search", function (response){

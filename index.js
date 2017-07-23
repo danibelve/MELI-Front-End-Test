@@ -21,13 +21,18 @@ app.use(
   })
 );
 
-
+//Llamada al html index
 app.get('/', function (req, res) {
   res.sendFile(__dirname +'/public/index.html');
 });//fin get /
-app.get('/search', function (req,res){
-	res.sendFile(__dirname + '/public/views/busqueda.html');
-}); //fin get '/search'
+
+//Llamada al html busqueda
+app.get('/api/items', function (req, res) {
+  res.sendFile(__dirname + '/public/views/busqueda.html');
+});//fin items
+
+
+
 	//aca tendria que decir ITEMS utilizar el requiere
 app.get('/prod', function(req,res){
 	https.get("https://api.mercadolibre.com/sites/MLA/search", function (response){

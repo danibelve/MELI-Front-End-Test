@@ -8,7 +8,7 @@ path = require('path');
 // cuando diga /lib va a buscar a /node_modules
 app.use('/lib',express.static(__dirname + '/node_modules')); 
 app.use(express.static(__dirname + '/public'));
-
+//Setteo Sass
 app.use(
   sassMiddleware({
     src: path.join(__dirname, 'scss'),
@@ -29,58 +29,45 @@ app.get('/', function (req, res) {
 //Llamada al html busqueda
 app.get('/api/items', function (req, res) {
   res.sendFile(__dirname + '/public/views/busqueda.html');
-});//fin items
+});//fin /api/items
 
+//JSON para items 1-4
+app.get('/api/items', function (req, res) {
+  request('https://api.mercadolibre.com/sites/MLA/search?q=' + req.query.q, function (error, response, data) {
+    if (error) {
+      res.send("Algo salió mal");
+    } else {
+      data = JSON.parse(data);
+      var results = [];
 
+      for (var i = 0; i < 4; i++) {
+        var product = data.results[i];
 
-	//aca tendria que decir ITEMS utilizar el requiere
-app.get('/prod', function(req,res){
-	https.get("https://api.mercadolibre.com/sites/MLA/search", function (response){
-		var body = '';
-		response.on('data',function(d){
-			body += d;
-		});
-		response.on('end', function(){
-			console.log(JSON.parse(body));
-			body = JSON.parse(body);
-			// CON ESTE FOR SE GENERA UN CAMBIO DE KEY EN
-			//DONDE SE GUARDAN LAS CLAVES FIRST_NAME Y LAST_NAME
-			//EN UNA NUEVA KEY QUE SE LLAMA FULL_NAME QUE REEMPLAZA
-			//A LAS DOS ANTERIORES (HACE UNA DE DOS,)
-			/*for(var i=0; i< body.data.length; i++){
-				var persona = body.data[i];
-				var personaNueva ={};
-				personaNueva.id = persona.id;
-				personaNueva.avatar = persona.avatar;
-				personaNueva.full_name = persona.first_name + " "+ persona.last_name;
+        results.push({
+          id: product.id,
+          title: product.title,
+          //Necesito más información currency_id + Decimales
+          price: product.price,
+          picture: product.thumbnail,
+          condition: product.condition,
+          //Darle una segunda mirada
+          free_shipping: product.shipping.free_shipping
+        });
+      }
 
-				body.data[i]=personaNueva;
-			}*/
-			res.send(body);
-		});
-	});
+      var itemResults = {
+        author: {
+          name: "Daniela",
+          lastname: "Belvedere"
+        },
+        items: results
+      }
+
+      res.send(itemResults);
+    }
+  });
 });
-//necesito para avisarle qué pasa cuando productos/ tiene algo después
-app.get('/prod/:user_id', function(req,res){
-	//.user_id refiere a como guarde aca arriba lo que viene después de user
-	//res.send(req.params.user_id);
-			//URL sacada como "single user"
-	https.get("https://reqres.in/api/users/" + req.params.user_id, function (response){
-		var body = '';
-		response.on('data',function(d){
-			body += d;
-		});
-		response.on('end', function(){
-			console.log(JSON.parse(body));
-			body = JSON.parse(body);
-			res.send(body);
-		});
-	});
-
-});
-app.get('/detalle', function(req,res){
-	res.sendFile(__dirname +'/public/views/detalle.html');
-});
+//Setteo de localhost
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');
 });

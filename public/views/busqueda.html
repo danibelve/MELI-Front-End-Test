@@ -19,6 +19,41 @@
 		<link rel="stylesheet" href="/css/font-awesome.min.css">
 	</head>
 	<body>
+		<nav>
+			<div class="nav">
+				<div>
+					<div class="otro">
+						<a class="logo" href="#" alt="Logo Mercado Libre ">Mercado Libre Argentina</a>
+						<form class="search" action="/api/items">
+							<input class="input-search" type="text" aria-label="Ingrese aquí lo que desea buscar" placeholder="Nunca dejes de buscar" name="search" autocomplete="off" spellcheck="off">
+							<button class="search-btn" role="button" aria-label="Buscar" type="submit"><i class="fa fa-search icon-search" aria-hidden="true"></i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</nav><!-- fin nav-->
 
+
+	 <div class="container">
+
+    <div class="starter-template">
+      <h1>RESPUESTA ML</h1>
+
+      <p id="ml-response"></p>
+
+      <script id="productTemplate" type="text/x-jquery-tmpl">
+        <a href="/items/${id}">
+          <div class="product">
+            <img src="${picture}" alt="${title}"/>
+            <p>${title}</p>
+          </div>
+        </a>
+      </script>
+
+    </div>
+</div>
+	<!-- Scripts -->
+	  <script src="/js/queryParameters.js"></script>
+	  <script src="/js/busqueda.js"></script>
 	</body>
 </html>

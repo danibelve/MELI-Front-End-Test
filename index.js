@@ -27,9 +27,9 @@ app.get('/', function (req, res) {
 });//fin get /
 
 //Llamada al html busqueda
-app.get('/api/items', function (req, res) {
+app.get('/items', function (req, res) {
   res.sendFile(__dirname + '/public/views/busqueda.html');
-});//fin /api/items
+});//fin /items
 
 //JSON para items 1-4
 app.get('/api/items', function (req, res) {
@@ -51,7 +51,7 @@ app.get('/api/items', function (req, res) {
           picture: product.thumbnail,
           condition: product.condition,
           //Darle una segunda mirada
-          free_shipping: product.shipping.free_shipping
+          /*free_shipping: product.shipping.free_shipping*/
         });
       }
 

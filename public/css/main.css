@@ -61,7 +61,9 @@ body {
   margin: 0 auto; }
 
 #respuesta-meli {
-  background-color: #FFFFFF; }
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  justify-content: baseline; }
 
 .product {
   display: flex;
@@ -73,10 +75,21 @@ body {
     height: 180px;
     width: 180px;
     border-radius: 4px;
-    margin-left: 16px; }
-  .product .city, .product .info {
-    display: inline-block; }
+    margin-left: 16px;
+    padding-bottom: 16px; }
   .product .info {
-    width: 85%; }
+    width: 800px;
+    padding-left: 16px; }
+    .product .info h4 {
+      padding-bottom: 32px;
+      font-size: 24px;
+      font-weight: normal; }
+    .product .info .title {
+      font-size: 18px;
+      text-decoration: none;
+      color: #333333; }
   .product .city {
-    width: 15%; }
+    width: 200px; }
+    .product .city p {
+      margin-top: -46px;
+      font-size: 12px; }

@@ -6,6 +6,9 @@
 }
 #respuesta-meli{
   background-color: $blanco;
+  border-radius: 4px;
+  justify-content: baseline;
+
 }
 
 .product {
@@ -15,21 +18,35 @@
   padding: 16px 0 16px 0;
   margin-bottom:16px;
 
+
   figure{
     img{
       height: 180px;
       width: 180px;
       border-radius: 4px;
       margin-left: 16px;
+      padding-bottom: 16px;
     }
   }
-  .city, .info{
-    display: inline-block;
-  }
   .info{
-    width: 85%;
+    width: 800px;
+    padding-left: 16px;
+    h4{
+      padding-bottom: 32px;
+      font-size: 24px;
+      font-weight: normal;
+    }
+    .title{
+      font-size: 18px;
+      text-decoration: none;
+      color: $gris-oscuro;
+    }
   }
   .city{
-    width: 15%;
+  width: 200px;
+    p{
+      margin-top: -46px;
+      font-size: 12px;
+    }
   }
 }

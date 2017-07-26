@@ -38,7 +38,26 @@
 		      <p id="respuesta-meli"></p>
 
 		      <script id="template" type="text/x-jquery-tmpl">
-		        <a href="/items/${id}">
+		      <table class="product">
+		      	<td>
+		      		<figure>
+		      			<a class="title" href="/items/${id}">
+		            		<img src="${picture}" alt="${title}">
+		            	</a>
+		            </figure>
+		      	</td>
+		      	<td class="info">
+		      		<h4>$ ${price}</h4>
+				    <a class="title" href="/items/${id}">
+				    	<p>${title}</p>
+				    </a>
+				     <p>${condition}</p>
+		      	</td>
+		      	<td class="city">
+		      		<p>${city}</p>
+		      	</td>
+		      </table>
+		       <!-- <a href="/items/${id}">
 		          <div class="product">
 		            <figure>
 		            	<img src="${picture}" alt="${title}">
@@ -48,10 +67,10 @@
 				            <p>${title}</p>
 				            <p>${condition}</p>
 			            </div><!-- info-->
-			            <div class="city">
+			          <!--  <div class="city">
 			            	<p>${city}</p>
 			            </div><!-- city-->
-		         </div><!-- product -->
+		         <!--</div><!-- product -->
 
 		        </a>
 

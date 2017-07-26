@@ -5,9 +5,6 @@ https = require('https'),
 sassMiddleware = require('node-sass-middleware'),
 request = require('request'),
 path = require('path');
-// cuando diga /lib va a buscar a /node_modules
-app.use('/lib',express.static(__dirname + '/node_modules')); 
-app.use(express.static(__dirname + '/public'));
 //Setteo Sass
 app.use(
   sassMiddleware({
@@ -20,6 +17,11 @@ app.use(
     prefix: "/css"
   })
 );
+
+//Archivos estáticos
+		// cuando diga /lib va a buscar a /node_modules
+app.use('/lib',express.static(__dirname + '/node_modules')); 
+app.use(express.static(__dirname + '/public'));
 
 //Llamada al html index
 app.get('/', function (req, res) {
@@ -46,12 +48,12 @@ app.get('/api/items', function (req, res) {
         results.push({
           id: product.id,
           title: product.title,
-          //Necesito más información currency_id + Decimales
           price: product.price,
           picture: product.thumbnail,
           condition: product.condition,
           //Darle una segunda mirada
-          /*free_shipping: product.shipping.free_shipping*/
+          free_shipping: product.shipping.free_shipping,
+          city:product.address.state_name
         });
       }
 

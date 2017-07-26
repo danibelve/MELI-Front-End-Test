@@ -1,12 +1,67 @@
 <!-- detalle.html-->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Detalle</title>
-	<link rel="stylesheet" type="text/css" href="/lib/bootstrap/dist/css/bootstrap.min.css">
-</head>
-<body>
-	<h1>Detalle de producto</h1>
-</body>
+<html lang="es-AR">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Mercado Libre Argentina</title>
+				<link rel="shortcut icon"
+				href="https://http2.mlstatic.com/resources/frontend/commons-frontend/ui-dist/images/components/navigation/ML/favicon.d865b493.ico" />
+			<link rel="apple-touch-icon"
+				href="https://http2.mlstatic.com/resources/frontend/commons-frontend/ui-dist/images/components/navigation/ML/60x60-precomposed.79887ac6.png" />
+			<link rel="apple-touch-icon" sizes="76x76"
+	            href="https://http2.mlstatic.com/resources/frontend/commons-frontend/ui-dist/images/components/navigation/ML/76x76-precomposed.714703b7.png" />
+			<link rel="apple-touch-icon" sizes="120x120"
+	            href="https://http2.mlstatic.com/resources/frontend/commons-frontend/ui-dist/images/components/navigation/ML/120x120-precomposed.7be5e0dc.png" />
+			<link rel="apple-touch-icon" sizes="152x152"
+	            href="https://http2.mlstatic.com/resources/frontend/commons-frontend/ui-dist/images/components/navigation/ML/152x152-precomposed.772528d5.png" />
+		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="/css/font-awesome.min.css">
+	</head>
+	<body>
+		<nav>
+			<div class="nav">
+				<div>
+					<div class="otro">
+						<a class="logo" href="#" alt="Logo Mercado Libre ">Mercado Libre Argentina</a>
+						<form class="search" action="/api/items">
+							<input class="input-search" type="text" aria-label="Ingrese aquí lo que desea buscar" placeholder="Nunca dejes de buscar" name="search" autocomplete="off" spellcheck="off">
+							<button class="search-btn" role="button" aria-label="Buscar" type="submit"><i class="fa fa-search icon-search" aria-hidden="true"></i></button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</nav><!-- fin nav-->
+
+		<div class="resultado">
+
+		      <p id="respuesta-meli"></p>
+
+		      <script id="template" type="text/x-jquery-tmpl">
+		        <a href="/items/${id}">
+		          <div class="product">
+		            <figure>
+		            	<img src="${picture}" alt="${title}">
+		            </figure>
+		            <div class="info">
+			            <h4>$ ${price}</h4>
+			            <p>${title}</p>
+			            <p>${condition}</p>
+		            </div><!-- info-->
+		            <div class="city">
+		            	<p>${city}</p>
+		            </div><!-- city-->
+		          </div>
+		        </a>
+		      </script>
+
+		</div><!-- fin resultado -->
+	<!-- Scripts -->
+	  <script src="/lib/jquery/dist/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+	  <script type="text/javascript" src="/js/lib/jquery.tmpl.js"></script>
+	  <script src="/js/queryParameters.js"></script>
+	  <script src="/js/busqueda.js"></script>
+	  
+	</body>
 </html>

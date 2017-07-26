@@ -33,30 +33,35 @@
 			</div>
 		</nav><!-- fin nav-->
 
+		<div class="resultado">
 
-	 <div class="container">
-	<div class="resultado"></div>
-    <div class="starter-template">
-      <h1>RESPUESTA ML</h1>
+		      <p id="respuesta-meli"></p>
 
-      <p id="ml-response"></p>
+		      <script id="template" type="text/x-jquery-tmpl">
+		        <a href="/items/${id}">
+		          <div class="product">
+		            <figure>
+		            	<img src="${picture}" alt="${title}">
+		            </figure>
+		            <div class="info">
+			            <h4>$ ${price}</h4>
+			            <p>${title}</p>
+			            <p>${condition}</p>
+		            </div><!-- info-->
+		            <div class="city">
+		            	<p>${city}</p>
+		            </div><!-- city-->
+		          </div>
+		        </a>
+		      </script>
 
-      <script id="productTemplate" type="text/x-jquery-tmpl">
-        <a href="/items/${id}">
-          <div class="product">
-            <img src="${picture}" alt="${title}"/>
-            <p>${title}</p>
-          </div>
-        </a>
-      </script>
-
-    </div>
-</div>
+		</div><!-- fin resultado -->
 	<!-- Scripts -->
 	  <script src="/lib/jquery/dist/jquery.min.js"></script>
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+	  <script type="text/javascript" src="/js/lib/jquery.tmpl.js"></script>
 	  <script src="/js/queryParameters.js"></script>
 	  <script src="/js/busqueda.js"></script>
-	  <script type="text/javascript" src="/js/lib/jquery.tmpl.js"></script>
+	  
 	</body>
 </html>

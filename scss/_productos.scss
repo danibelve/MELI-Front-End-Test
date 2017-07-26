@@ -1,0 +1,27 @@
+.resultado{
+    padding-top: 71px;
+    max-width: 1000px;
+    margin: 0 auto;
+
+}
+#respuesta-meli{
+  background-color: $blanco;
+}
+
+.product {
+  display: flex;
+  align-items: center;
+  height: 200px;
+  border-bottom: 2px solid $base;
+  padding: 16px 0 16px 0;
+  margin-bottom:16px;
+
+  figure{
+    img{
+      height: 180px;
+      width: 180px;
+      border-radius: 4px;
+      margin-left: 16px;
+    }
+  }
+}

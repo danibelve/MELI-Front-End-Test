@@ -5,7 +5,7 @@
 
 body {
   background-color: #EEEEEE;
-  font-family: Arial,Helvetica,"Nimbus Sans L",sans-serif;
+  font-family: Helvetica,Arial,"Nimbus Sans L",sans-serif;
   color: #333333; }
 
 .nav {
@@ -23,8 +23,7 @@ body {
       position: relative;
       padding: 0 0 0 80px; }
       .nav div div a {
-        background-color: transparent; }
-      .nav div div .logo {
+        background-color: transparent;
         background-image: url(../assets/logo.png);
         background-size: 53px;
         background-repeat: no-repeat;
@@ -56,43 +55,23 @@ body {
         background-color: #EEEEEE;
         border-radius: 0 4px 4px 0; }
 
-.otro {
-  position: relative;
-  padding: 0 0 0 80px; }
+.resultado {
+  padding-top: 71px;
+  max-width: 1000px;
+  margin: 0 auto; }
 
-.otro a {
-  background-color: transparent; }
+#respuesta-meli {
+  background-color: #FFFFFF; }
 
-.otro .logo {
-  background-image: url(../assets/logo.png);
-  background-size: 53px;
-  background-repeat: no-repeat;
-  height: 36px;
-  top: 10px;
-  width: 53px;
-  position: absolute;
-  left: 0;
-  overflow: hidden;
-  text-indent: -999px;
-  outline: none; }
-
-.input-search {
-  position: relative;
-  font-size: 18px;
-  width: 100%;
-  top: 8px;
-  height: 38px;
-  padding: 3px 35px 3px 15px;
-  border-radius: 4px;
-  border: 0;
-  background-color: #fff; }
-
-.search-btn {
-  position: absolute;
-  top: 8px;
-  right: 0;
-  width: 42px;
-  height: 38px;
-  border: 0;
-  background-color: #eee;
-  border-radius: 0 4px 4px 0; }
+.product {
+  display: flex;
+  align-items: center;
+  height: 200px;
+  border-bottom: 2px solid #EEEEEE;
+  padding: 16px 0 16px 0;
+  margin-bottom: 16px; }
+  .product figure img {
+    height: 180px;
+    width: 180px;
+    border-radius: 4px;
+    margin-left: 16px; }

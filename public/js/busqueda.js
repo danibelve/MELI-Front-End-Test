@@ -1,9 +1,10 @@
 $(document).ready(function () {
+ $(".input-search").attr({
+  value: QueryParameters.getUrlParameter("search"),
+	});
   $.get("/api/items?q=" + QueryParameters.getUrlParameter("search"), function (res) {
-  	console.log(res);
-    $("#productTemplate")
+    $("#template")
       .tmpl(res.items)
-      .appendTo("#ml-response");
-
+      .appendTo("#respuesta-meli");
   });
 });

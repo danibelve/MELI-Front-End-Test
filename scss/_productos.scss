@@ -10,7 +10,6 @@
 
 .product {
   display: flex;
-  align-items: center;
   height: 200px;
   border-bottom: 2px solid $base;
   padding: 16px 0 16px 0;
@@ -23,5 +22,14 @@
       border-radius: 4px;
       margin-left: 16px;
     }
+  }
+  .city, .info{
+    display: inline-block;
+  }
+  .info{
+    width: 85%;
+  }
+  .city{
+    width: 15%;
   }
 }

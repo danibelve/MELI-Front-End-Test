@@ -1,4 +1,3 @@
-
 var express = require('express'),
 app = express(),
 https = require('https'),
@@ -32,6 +31,10 @@ app.get('/', function (req, res) {
 app.get('/items', function (req, res) {
   res.sendFile(__dirname + '/public/views/busqueda.html');
 });//fin /items
+//Llamada al html detalle
+app.get('/items/:id', function (req, res, next) {
+  res.sendFile(__dirname + "/public/views/detalle.html");
+});//fin /items/:id
 
 //JSON para items 1-4
 app.get('/api/items', function (req, res) {
@@ -69,6 +72,49 @@ app.get('/api/items', function (req, res) {
     }
   });
 });
+
+//Detalle
+app.get('/api/items/:id', function (req, res) {
+
+  // hago primero el resquest del producto
+  request('https://api.mercadolibre.com/items/' + req.params.id, function (error, response, body) {
+    var product = JSON.parse(body);
+
+    // una vez que tengo el request del producto, hago un request por su descripcion
+    request('https://api.mercadolibre.com/items/' + req.params.id + '/description', function (error, response, body) {
+      var productDescription = JSON.parse(body);
+
+      // hago el request para la categoria del producto
+      request('https://api.mercadolibre.com/categories/' + product.category_id, function (error, response, body) {
+        var category = JSON.parse(body);
+
+        // armo el json de respuesta final con la info el producto y su descripcion
+        var response = {
+          author: {
+            name: "Daniela",
+            lastname: "Belvedere"
+          },
+          item: {
+            id: product.id,
+            description: productDescription.text,
+            picture: product.secure_thumbnail,
+            categories: arrayCategorias(category)
+          }
+        }
+
+        res.send(response);
+
+      });
+    });
+  });
+
+});
+
+//Array de categorias
+function arrayCategorias(categories) {
+    return categories.path_from_root.map( function (category) { return category.name } );
+}
+
 //Setteo de localhost
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!');

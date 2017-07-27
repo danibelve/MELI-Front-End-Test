@@ -33,17 +33,18 @@
 			</div>
 		</nav><!-- fin nav-->
 
-		<div class="starter-template">
-      <h1>RESPUESTA ITEM ESPECIFICO</h1>
+		<div class="resultado">
+ 	   <p id="pan"></p>
+       <p id="respuesta-meli"></p>
+	      <script id="productTemplate" type="text/x-jquery-tmpl">
+	        <div>
+	          <img src="${picture}"/>
+	          <h4>$ ${price}</h4>
+	          <p class="header-desc">Descripción del producto</p>
+	          {{html description}}
+	        </div>
+	      </script>
 
-      <p id="ml-response"></p>
-
-      <script id="productTemplate" type="text/x-jquery-tmpl">
-        <div class="product-detail">
-          <img src="${picture}"/>
-          {{html description}}
-        </div>
-      </script>
 	<!-- Scripts -->
 	  <script src="/lib/jquery/dist/jquery.min.js"></script>
 	  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>

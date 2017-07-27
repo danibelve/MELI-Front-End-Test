@@ -8,11 +8,12 @@ $(document).ready(function () {
 
     console.log(res);
 
-    $("#ml-response").append("<p>" + res.item.categories.join(" > ") + "</p>");
+    $("#pan").append('<p class="pan">' + res.item.categories.join(" > ") + '</p>');
 
     $("#productTemplate")
+      .append('<p class="heading">Descripción del producto</p>')
       .tmpl([res.item])
-      .appendTo("#ml-response");
+      .appendTo("#respuesta-meli");
 
   });
 });

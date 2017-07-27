@@ -93,3 +93,23 @@ body {
     .product .city p {
       margin-top: -46px;
       font-size: 12px; }
+
+.resultado {
+  padding-top: 71px;
+  max-width: 1000px;
+  margin: 0 auto; }
+
+.pan {
+  font-size: 14px;
+  color: #999999;
+  padding-bottom: 16px; }
+
+.header-desc {
+  font-size: 28px;
+  margin: 0 0 32px 32px; }
+
+#respuesta-meli {
+  background-color: #FFFFFF;
+  border-radius: 4px;
+  justify-content: baseline;
+  padding-bottom: 32px; }

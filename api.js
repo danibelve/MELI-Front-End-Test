@@ -96,8 +96,13 @@ app.get('/api/items/:id', function (req, res) {
           },
           item: {
             id: product.id,
-            description: productDescription.text,
+            title: product.title,
+            price: product.price,
             picture: product.secure_thumbnail,
+            condition: product.condition,
+            free_shipping: product.shipping.free_shipping,
+            description: productDescription.text,
+            sold_quantity: product.sold_quantity,
             categories: arrayCategorias(category)
           }
         }

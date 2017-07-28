@@ -1,3 +1,7 @@
+/*@font-face {
+    font-family: Helvetica;
+    src: url('/public/css/fonts/helvetica.ttf');
+}*/
 * {
   box-sizing: border-box;
   padding: 0;
@@ -5,7 +9,7 @@
 
 body {
   background-color: #EEEEEE;
-  font-family: Helvetica,Arial,"Nimbus Sans L",sans-serif;
+  font-family: Helvetica,Arial,sans-serif;
   color: #333333; }
 
 .nav {
@@ -74,6 +78,7 @@ body {
   .product figure img {
     height: 180px;
     width: 180px;
+    max-width: 100%;
     border-radius: 4px;
     margin-left: 16px;
     padding-bottom: 16px; }
@@ -115,7 +120,8 @@ body {
   justify-content: space-between;
   padding: 0 32px 32px 0; }
   .item-info .picture figure img {
-    height: 680px;
+    width: 680px;
+    max-width: 100%;
     padding-top: 32px; }
   .item-info .compra-info {
     padding-top: 32px; }
@@ -139,7 +145,21 @@ body {
       width: 100%; }
 
 .description-info {
-  margin: 0 0 32px 32px; }
+  margin: 0 0 32px 32px;
+  max-width: 100%; }
   .description-info .header-desc {
     padding: 32px 0 32px 0;
-    font-size: 28px; }
+    font-size: 28px;
+    max-width: 100%; }
+
+@media screen and (max-width: 1050px) {
+  .resultado {
+    max-width: 700px; }
+  .nav div {
+    max-width: 700px; } }
+
+@media screen and (max-width: 750px) {
+  .resultado {
+    max-width: 600px; }
+  .nav div {
+    max-width: 600px; } }

@@ -1,0 +1,20 @@
+@media screen and (max-width: 1050px) {
+  .resultado{
+  	max-width: 700px;
+  }
+  .nav{
+  	div{
+  	max-width: 700px;
+  	}
+  }
+}
+@media screen and (max-width: 750px) {
+  .resultado{
+  	max-width: 600px;
+  }
+  .nav{
+  	div{
+  	max-width: 600px;
+  	}
+  }
+}

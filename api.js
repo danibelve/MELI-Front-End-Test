@@ -61,7 +61,7 @@ app.get('/api/items', function (req, res) {
           id: product.id,
           title: product.title,
           price:/* {
-            /*currency:*/ product.price//.currency_id,
+            /*currency:*/ product.price/*.currency_id*/,
             /*amount: product.price,*/
             /*decimals:*/
           // }

@@ -36,7 +36,7 @@ app.get('/items/:id', function (req, res, next) {
   res.sendFile(__dirname + "/public/views/detalle.html");
 });//fin /items/:id
 
-//JSON para items 1-4
+
 app.get('/api/items', function (req, res) {
   request('https://api.mercadolibre.com/sites/MLA/search?q=' + req.query.q, function (error, response, data) {
     if (error) {
@@ -44,14 +44,27 @@ app.get('/api/items', function (req, res) {
     } else {
       data = JSON.parse(data);
       var results = [];
+//Breadcrumb
+/*      var data.filters = [];
 
+    if (data.filters.length == 0) {
+      results.categories.push(data.query);
+    } else {
+       data.categories = arrayCategorias(category);
+      }
+    }*/
+//JSON para items 1-4
       for (var i = 0; i < 4; i++) {
         var product = data.results[i];
 
         results.push({
           id: product.id,
           title: product.title,
-          price: product.price,
+          price:/* {
+            /*currency:*/ product.price//.currency_id,
+            /*amount: product.price,*/
+            /*decimals:*/
+          // }
           picture: product.thumbnail,
           condition: product.condition,
           //Darle una segunda mirada

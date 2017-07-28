@@ -18,3 +18,25 @@
   	}
   }
 }
+
+@media screen and (max-width: 620px) {
+  .resultado{
+  	max-width: 500px;
+  }
+  .nav{
+  	div{
+  	max-width: 500px;
+  	}
+  }
+}
+/*
+@media screen and (max-width: 520px) {
+  .resultado{
+  	max-width: 500px;
+  }
+  .nav{
+  	div{
+  	max-width: 500px;
+  	}
+  }
+}*/

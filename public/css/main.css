@@ -78,7 +78,7 @@ body {
   .product figure img {
     height: 180px;
     width: 180px;
-    max-width: 100%;
+    /*max-width: 100%;*/
     border-radius: 4px;
     margin-left: 16px;
     padding-bottom: 16px; }
@@ -163,3 +163,9 @@ body {
     max-width: 600px; }
   .nav div {
     max-width: 600px; } }
+
+@media screen and (max-width: 620px) {
+  .resultado {
+    max-width: 500px; }
+  .nav div {
+    max-width: 500px; } }

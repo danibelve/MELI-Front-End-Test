@@ -8,16 +8,62 @@
 	color: $gris-claro;
 	padding-bottom: 16px;
 }
-.header-desc{
-	font-size: 28px;
-	margin: 0 0 32px 32px;
-}
-
 
 #respuesta-meli{
   background-color: $blanco;
   border-radius: 4px;
   justify-content: baseline;
   padding-bottom: 32px;
+}
+
+.item-info{
+	display: flex;
+	justify-content: space-between;
+	padding: 0 32px 32px 0;
+	.picture{
+		figure{
+			img{
+		  		height: 680px;	
+		  		padding-top: 32px;
+		  	}
+		}
+	}
+  	.compra-info{
+  		padding-top: 32px;
+  		.condition{
+  			font-size: 14px;
+  			padding-bottom: 16px;
+  		}
+  		.title{
+  			font-size: 24px;
+  			padding-bottom: 32px;
+  		}
+  		.price{
+  			font-size: 46px;
+  			padding-bottom: 36px;
+  		}
+  		button{
+	  		background-color: $boton;
+			border: 0;
+			border-radius: 4px;
+			color: $blanco;
+			cursor: pointer;
+			font-size: 16px;
+			padding: 11px;
+			width: 100%;
+  		}
+  	}
 
 }
+.description-info{
+	margin: 0 0 32px 32px;
+	.header-desc{
+		padding: 32px 0 32px 0;
+		font-size: 28px;
+	}
+}
+
+
+
+  	
+  	

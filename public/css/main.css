@@ -104,12 +104,42 @@ body {
   color: #999999;
   padding-bottom: 16px; }
 
-.header-desc {
-  font-size: 28px;
-  margin: 0 0 32px 32px; }
-
 #respuesta-meli {
   background-color: #FFFFFF;
   border-radius: 4px;
   justify-content: baseline;
   padding-bottom: 32px; }
+
+.item-info {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 32px 32px 0; }
+  .item-info .picture figure img {
+    height: 680px;
+    padding-top: 32px; }
+  .item-info .compra-info {
+    padding-top: 32px; }
+    .item-info .compra-info .condition {
+      font-size: 14px;
+      padding-bottom: 16px; }
+    .item-info .compra-info .title {
+      font-size: 24px;
+      padding-bottom: 32px; }
+    .item-info .compra-info .price {
+      font-size: 46px;
+      padding-bottom: 36px; }
+    .item-info .compra-info button {
+      background-color: #3483FA;
+      border: 0;
+      border-radius: 4px;
+      color: #FFFFFF;
+      cursor: pointer;
+      font-size: 16px;
+      padding: 11px;
+      width: 100%; }
+
+.description-info {
+  margin: 0 0 32px 32px; }
+  .description-info .header-desc {
+    padding: 32px 0 32px 0;
+    font-size: 28px; }

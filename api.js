@@ -45,14 +45,20 @@ app.get('/api/items', function (req, res) {
       data = JSON.parse(data);
       var results = [];
 //Breadcrumb
-/*      var data.filters = [];
 
-    if (data.filters.length == 0) {
-      results.categories.push(data.query);
-    } else {
-       data.categories = arrayCategorias(category);
-      }
-    }*/
+    function getCategories (data) {
+        // busco el filtro id = category
+        var categorias = data.filters.filter(function (filter) { return filter.id == "category"})
+
+        // si en los filtros vino el de category
+        if (categorias.length && categorias[0].values && categorias[0].values.length && categorias[0].values[0]) {
+            // array de categorias
+            return categorias[0].values[0].path_from_root.map(function (category) { return category.name });
+        } else {
+            // array con el termino de búsqueda
+            return [data.query];
+        }//fin else
+    }//fin getCategories
 //JSON para items 1-4
       for (var i = 0; i < 4; i++) {
         var product = data.results[i];
@@ -70,6 +76,7 @@ app.get('/api/items', function (req, res) {
           //Darle una segunda mirada
           free_shipping: product.shipping.free_shipping,
           city:product.address.state_name
+
         });
       }
 
@@ -78,6 +85,7 @@ app.get('/api/items', function (req, res) {
           name: "Daniela",
           lastname: "Belvedere"
         },
+        categories: getCategories(data),
         items: results
       }
 

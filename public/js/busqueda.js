@@ -4,7 +4,7 @@ $(document).ready(function () {
 	});
   
   $.get("/api/items?q=" + QueryParameters.getUrlParameter("search"), function (res) {
-  	console.log(res.item);
+  	console.log(res.items);
   	$("#pan").append('<p class="pan"> Inicio > ' + res.categories.join(" > ") + '</p>');
     $("#template")
       .tmpl(res.items)

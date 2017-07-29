@@ -59,18 +59,31 @@ app.get('/api/items', function (req, res) {
             return [data.query];
         }//fin else
     }//fin getCategories
+// JSON modificado para price
+/*var precioModificado = {};
+        precioModificado.currency = data.results.currency_id;
+        //No es un número, al parecer.
+          if (Number.isInteger(data.results.price)) {
+            precioModificado.amount = data.results.price;
+            precioModificado.decimals = 0;
+          } else {
+            precioModificado.amount = Math.floor(data.results.price);
+            precioModificado.decimals = parseInt(data.results.price.toString().split('.')[1]);
+          }*/
+//console.log(precioModificado);
 //JSON para items 1-4
       for (var i = 0; i < 4; i++) {
         var product = data.results[i];
 
+
         results.push({
           id: product.id,
           title: product.title,
-          price:/* {
-            /*currency:*/ product.price/*.currency_id*/,
-            /*amount: product.price,*/
-            /*decimals:*/
-          // }
+          price:{
+            currency: product.currency_id,
+            amount: product.price,
+            decimals: product.price.toString().split('.')[1] 
+          }, 
           picture: product.thumbnail,
           condition: product.condition,
           //Darle una segunda mirada
@@ -79,7 +92,7 @@ app.get('/api/items', function (req, res) {
 
         });
       }
-
+console.log(results);
       var itemResults = {
         author: {
           name: "Daniela",
@@ -118,7 +131,11 @@ app.get('/api/items/:id', function (req, res) {
           item: {
             id: product.id,
             title: product.title,
-            price: product.price,
+            price:{
+              currency: product.currency_id,
+              amount: product.price,
+              decimals: product.price.toString().split('.')[1] 
+            }, 
             picture: product.secure_thumbnail,
             condition: product.condition,
             free_shipping: product.shipping.free_shipping,

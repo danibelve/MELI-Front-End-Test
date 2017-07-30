@@ -11,7 +11,6 @@ $(document).ready(function () {
     $("#pan").append('<p class="pan">' + res.item.categories.join(" > ") + '</p>');
 
     $("#productTemplate")
-      .append('<p class="heading">Descripción del producto</p>')
       .tmpl([res.item])
       .appendTo("#respuesta-meli");
 

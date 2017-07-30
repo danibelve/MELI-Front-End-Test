@@ -81,7 +81,7 @@ app.get('/api/items', function (req, res) {
           title: product.title,
           price:{
             currency: product.currency_id,
-            amount: product.price,
+            amount: Math.floor(product.price),
             decimals: product.price.toString().split('.')[1] 
           }, 
           picture: product.thumbnail,
@@ -133,7 +133,7 @@ app.get('/api/items/:id', function (req, res) {
             title: product.title,
             price:{
               currency: product.currency_id,
-              amount: product.price,
+              amount:  Math.floor(product.price),
               decimals: product.price.toString().split('.')[1] 
             }, 
             picture: product.secure_thumbnail,

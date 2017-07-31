@@ -58,7 +58,7 @@ app.get('/items/:id', function (req, res, next) {
         var category = JSON.parse(body);
 
         res.render("detalle", {
-          meta_title: product.title + " - $" + product.price.amount,
+          meta_title: product.title + " - $" + product.price,
           meta_description: "Cómpralo en Mercado Libre a $ " + product.price +" - Compra en 12 cuotas - Envío gratis. Encuentra más productos de " + arrayCategorias(category).join(", ") + "."
         });
 

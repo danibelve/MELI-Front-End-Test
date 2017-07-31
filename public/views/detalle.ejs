@@ -1,0 +1,48 @@
+<!-- detalle.html-->
+<!DOCTYPE html>
+<html lang="es-AR">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<% include metas %>
+		<link rel="stylesheet" href="/css/main.css">
+		<link rel="stylesheet" href="/css/font-awesome.min.css">
+	</head>
+	<body>
+		<% include nav %>
+
+		<div class="resultado">
+ 	   <p id="pan"></p>
+       <p id="respuesta-meli"></p>
+	      <script id="productTemplate" type="text/x-jquery-tmpl">
+	        <div class="item-info">
+		        <div class="picture">
+				      		<figure>
+				            		<img src="${picture}" alt="${title}">
+				            </figure>
+				</div>
+				<div class="compra-info">
+				      				    
+						     <p class="condition">${condition} - ${sold_quantity} vendidos</p>
+						     <p class="title">${title}</p>
+						     <p class="price">$ ${price.amount}<sup>${price.decimals}</sup></p>
+						     <button>Comprar</button>
+
+				 </div><!-- compra info-->
+				 </div><!-- item-info-->
+		     <div class="description-info">
+		      		<p class="header-desc">Descripción del producto</p>
+	          		{{html description}}
+		     </div>
+	      </script>
+
+	<!-- Scripts -->
+	  <script src="/lib/jquery/dist/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+	  <script type="text/javascript" src="/js/lib/jquery.tmpl.js"></script>
+	  <script src="/js/queryParameters.js"></script>
+	  <script src="/js/urlPattern.js"></script>
+	  <script src="/js/detalle.js"></script>
+	  
+	</body>
+</html>

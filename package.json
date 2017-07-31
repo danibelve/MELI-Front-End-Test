@@ -8,7 +8,9 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "ejs": "^2.5.7",
     "express": "^4.15.3",
+    "express-device": "^0.4.2",
     "jquery": "^3.2.1",
     "node-sass-middleware": "^0.11.0",
     "request": "^2.81.0"

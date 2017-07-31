@@ -3,6 +3,7 @@ app = express(),
 https = require('https'),
 sassMiddleware = require('node-sass-middleware'),
 request = require('request'),
+device = require('express-device'),
 path = require('path');
 //Setteo Sass
 app.use(
@@ -16,6 +17,13 @@ app.use(
     prefix: "/css"
   })
 );
+//Seteo device-express
+app.use(device.capture());
+device.enableDeviceHelpers(app);
+
+// configuro el motor de las vistas, y el directorio donde se encuentran
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'public', 'views'));
 
 //Archivos estáticos
 		// cuando diga /lib va a buscar a /node_modules
@@ -23,20 +31,45 @@ app.use('/lib',express.static(__dirname + '/node_modules'));
 app.use(express.static(__dirname + '/public'));
 
 //Llamada al html index
-app.get('/', function (req, res) {
-  res.sendFile(__dirname +'/public/index.html');
+app.get('/', function (req, res, next) {
+  res.render("index");
 });//fin get /
 
 //Llamada al html busqueda
-app.get('/items', function (req, res) {
-  res.sendFile(__dirname + '/public/views/busqueda.html');
+app.get('/items', function (req, res, next) {
+  if (res.locals.is_bot) {
+    res.render("busqueda", {
+      meta_title: req.query.search + " en Mercado Libre Argentina",
+      meta_description: "Encontrá " + req.query.search + " en Mercado Libre Argentina. Descubrí la mejor forma de comprar online."
+    });
+  } else {
+    res.render("busqueda");
+  }
 });//fin /items
 //Llamada al html detalle
 app.get('/items/:id', function (req, res, next) {
-  res.sendFile(__dirname + "/public/views/detalle.html");
+ if (res.locals.is_bot) {
+    // hago primero el resquest del producto
+    request('https://api.mercadolibre.com/items/' + req.params.id, function (error, response, body) {
+      var product = JSON.parse(body);
+
+      // hago el request para la categoria del producto
+      request('https://api.mercadolibre.com/categories/' + product.category_id, function (error, response, body) {
+        var category = JSON.parse(body);
+
+        res.render("detalle", {
+          meta_title: product.title + " - $" + product.price.amount,
+          meta_description: "Cómpralo en Mercado Libre a $ " + product.price +" - Compra en 12 cuotas - Envío gratis. Encuentra más productos de " + arrayCategorias(category).join(", ") + "."
+        });
+
+      });
+    });
+  } else {
+    res.render("detalle");
+}
 });//fin /items/:id
 
-
+//REQUEST
 app.get('/api/items', function (req, res) {
   request('https://api.mercadolibre.com/sites/MLA/search?q=' + req.query.q, function (error, response, data) {
     if (error) {
@@ -59,18 +92,6 @@ app.get('/api/items', function (req, res) {
             return [data.query];
         }//fin else
     }//fin getCategories
-// JSON modificado para price
-/*var precioModificado = {};
-        precioModificado.currency = data.results.currency_id;
-        //No es un número, al parecer.
-          if (Number.isInteger(data.results.price)) {
-            precioModificado.amount = data.results.price;
-            precioModificado.decimals = 0;
-          } else {
-            precioModificado.amount = Math.floor(data.results.price);
-            precioModificado.decimals = parseInt(data.results.price.toString().split('.')[1]);
-          }*/
-//console.log(precioModificado);
 //JSON para items 1-4
       for (var i = 0; i < 4; i++) {
         var product = data.results[i];
